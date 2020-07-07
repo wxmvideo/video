@@ -1,0 +1,8 @@
+<!--graceUI/components/graceReload.wxml-->
+<view class="grace-reload {{reloadStatus == 0 ? 'gload-show' : ''}} {{reloadStatus == 2 ? 'gload-hide' : ''}}" 
+style="background:{{reloadBgColor[reloadStatus]}}; height:{{height+'rpx'}}; width:{{width}}; margin-left:{{marginLeft}};">
+  <text class="grace-reload-icon icon-pulldown" wx:if="{{reloadStatus == 0}}" style="color:{{reloadColor[reloadStatus]}};"></text>
+  <text class="grace-reload-icon icon-loading grace-rotate360" wx:if="{{reloadStatus == 1}}" style="color:{{reloadColor[reloadStatus]}};"></text>
+  <text class="grace-reload-icon icon-ok" wx:if="{{reloadStatus == 2}}" style="color:{{reloadColor[reloadStatus]}};"></text>
+  <text class="grace-reload-text" style="color:{{reloadColor[reloadStatus]}};">{{reloadTxt[reloadStatus]}}</text>
+</view>

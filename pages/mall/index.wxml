@@ -1,0 +1,49 @@
+<!--pages/mall/index.wxml-->
+<graceHeader height="80" background="{{mainColor}}">
+	<view class="grace-header-body">商城</view>
+	<view slot="gHeader" class="grace-nav-bar">
+		<graceNavBar textAlign="center" activeLineBg="#FFFFFF" activeDirection="center" activeLineWidth="80rpx" fontSize="36rpx" activeFontSize="36rpx" color="#ffffff" activeColor="#ffffff" items="{{cates}}" currentIndex="{{currentIndex}}" bindchange="navChange"></graceNavBar>
+	</view>
+</graceHeader>
+<gracePage customHeader="{{false}}">
+	<view slot="gHeader">
+		<graceNavBar  textAlign="center" items="{{cates}}" fontSize="36rpx" activeFontSize="36rpx" activeDirection="center" isCenter="true" lineHeight="70rpx" activeLineWidth="80rpx" activeLineHeight="6rpx" activeColor="#ff0000" activeLineBg="linear-gradient(to right, #ff0000,#ff0055)" currentIndex="{{currentIndex}}" bindchange="navChange"></graceNavBar>
+	</view>
+	<view slot="gBody" class="grace-flex-v1" id="gBody">
+		<swiper style="height:{{mainHeight}}px" current="{{currentIndex}}" bindchange="swiperChange">
+			<swiper-item wx:for="{{itemAll}}" wx:for-item="items" wx:for-index="itemIndex" wx:key="itemIndex">
+				<scroll-view scroll-y="true" style="height:{{mainHeight}}px" bindscrolltolower="scrollend" bindscroll="scroll" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchend">
+					<!--下拉刷新-->
+          <graceReload  id="{{'graceReload' + itemIndex}}" ref="graceReload" width="750rpx" bindreload="reload"></graceReload>
+          <!--数据为空-->
+					<graceEmpty wx:if="{{items == 'empty'}}">
+						<view slot="img" class="empty-view">
+							<image class="empty-img" mode="widthFix" src="../../static/images/empty.png"></image>
+						</view>
+						<text slot="text" class="grace-gray grace-load-text">本栏目暂无商品</text>
+					</graceEmpty>
+          <!--数据列表-->
+					<view class="grace-news-list">
+				  	<block wx:for="{{items}}" wx:key="index" wx:if="{{items != 'empty'}}">
+							<view class="grace-news-item" data-id="{{item.id}}" bindtap="openGoods">
+								<image src="{{item.thumb}}" class="grace-news-img grace-news-img-l"></image>
+								<view class="grace-news-body">
+									<text class="grace-news-title">{{item.title}}</text>
+									<view class="grace-capsule grace-border-radius">
+										<text class="grace-capsule-icon" style="background:#E76B61;">领券减</text>
+										<text class="grace-capsule-text" style="border-color:#E76B61; color:#E76B61;">￥{{item.discount}}元</text>
+									</view>
+									<view class="grace-news-price">
+										<view class="grace-news-price1">券后:<text class="small">￥</text><text class="em">{{item.order_price}}</text></view>
+										<view class="grace-news-price2 grace-line-through"><text class="small">￥</text>{{item.price}}</view>
+									</view>
+								</view>
+							</view>
+						</block>
+					</view>
+					<graceLoading loadingType="{{loadingTypes[itemIndex]}}"></graceLoading>
+				</scroll-view>
+			</swiper-item>
+		</swiper>
+	</view>
+</gracePage>

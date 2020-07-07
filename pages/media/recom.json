@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "gracePage": "../../graceUI/components/gracePage",
+    "graceHeader" : "../../graceUI/components/graceHeader"
+  },
+  "navigationStyle":"custom",
+  "navigationBarTextStyle": "white"
+}

@@ -1,0 +1,27 @@
+<view class="video-contain">
+		<swiper skip-hidden-item-layout="{{true}}" duration="300" circular="{{circular}}" current="{{current}}" vertical="{{true}}" bindanimationfinish="swiperChange" bindtap="tabVideo">
+			<swiper-item wx:if="{{videoObjList[0].id}}" item-id="{{videoObjList[0].index}}">
+				<txv-video height="{{winHeight+'px'}}" bindplay="eventPlay" playerid="video0" vid="{{videoObjList[0].vid}}" object-fit="contain" loop="{{true}}" controls="{{false}}" show-progress="{{false}}" show-fullscreen-btn="{{false}}" show-play-btn="{{false}}"
+					show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" vslide-gesture-in-fullscreen="{{false}}"></txv-video>}
+			</swiper-item>
+			<swiper-item wx:if="{{videoObjList[1].id}}" item-id="{{videoObjList[1].index}}">
+				<txv-video height="{{winHeight+'px'}}" bindplay="eventPlay" playerid="video1" vid="{{videoObjList[1].vid}}" object-fit="contain" loop="{{true}}" controls="{{false}}" show-progress="{{false}}" show-fullscreen-btn="{{false}}" show-play-btn="{{false}}"
+					show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" vslide-gesture-in-fullscreen="{{false}}"></txv-video>
+			</swiper-item>
+			<swiper-item wx:if="{{videoObjList[2].id}}" item-id="{{videoObjList[2].index}}">
+				<txv-video height="{{winHeight+'px'}}" bindplay="eventPlay" playerid="video2" vid="{{videoObjList[2].vid}}"  object-fit="contain" loop="{{true}}" controls="{{false}}" show-progress="{{false}}" show-fullscreen-btn="{{false}}" show-play-btn="{{false}}"
+					show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" vslide-gesture-in-fullscreen="{{false}}"></txv-video>
+			</swiper-item>
+		</swiper>
+
+		<!-- 右侧工具 -->
+		<view class="video-tool">
+			<button open-type="share" class="share-button">
+				<image class="share-icon right-icon" src="https://img.kemanyun.com/qianhuituan/2019-09-20/69_1568963641_Fkf2m79fFb.png"></image>
+			</button>
+		</view>
+		<!-- 视频信息 -->
+		<view class="video-title">		
+				{{videoInfo.title}}
+		</view>
+</view>

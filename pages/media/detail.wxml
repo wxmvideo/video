@@ -1,0 +1,132 @@
+<graceHeader height="50" background="#000000">
+	<view class="grace-header-body">
+		<text class="grace-icons icon-arrow-left link-back" bindtap="toBack"></text>
+	</view>
+</graceHeader>
+<view id="gBody">
+	<view style="height:{{videoHeight}}px" class="media-player">
+		<txv-video enableDanmu="{{true}}" danmuList="{{danmuList}}" vid="{{detail.vid}}" height="{{'100%'}}" playerid="txv1" autoplay="{{true}}" wx:if="{{detail != null}}" bindtimeupdate="timeUpdate" bindended="onPlayEnd"></txv-video>
+	</view>
+	<!--分享区域-->
+	<view class="media-share grace-space-between">
+		<view>
+			<button type="primary" class="grace-button grace-icons grace-gtbg-green icon-home" bindtap="backHome">返回首页</button>
+		</view>
+		<view class="grace-no-scale">
+			<button type="warn" class="grace-button grace-icons grace-gtbg-purple icon-share2" open-type="share">分享到群</button>
+		</view>
+	</view>
+	<!--作者区域-->
+	<view class="grace-author">
+		<graceFlex class="row nowrap">
+			<view class="grace-author-box" style="width:400rpx;">
+				<view class="grace-list-items">
+					<view class="grace-list-image">
+						<image class="grace-list-image" src="{{detail.avatar}}" mode="widthFix"></image>
+					</view>
+					<view class="grace-list-body">
+						<view class="grace-art-info-line grace-list-title">
+							<text class="grace-list-title-text">{{detail.nickname}}</text>
+						</view>
+						<view class="grace-list-body-desc">
+							<text class="grace-video-info-line-text icon-right-margin" wx:if="detail.click">{{detail.click}}播放</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="grace-flex1">
+				<view class="grace-tomall">
+					<!-- <button wx:if="{{extend.exbtn.type > 0}}" type="primary" class="grace-button grace-gtbg-orange" bindtap="exBtn">{{extend.exbtn.text}}</button> -->
+				</view>
+			</view>
+		</graceFlex>
+	</view>
+
+	<!--标题区域-->
+	<view class="media-title">
+		<text class="grace-video-title">{{detail.title}}</text>
+	</view>
+
+	<!--关注区域-->
+	<view class="grace-follow" v-if="extend.follow == 1">
+		<block wx:if="{{scene == 1047 || scene == 1124 || scene == 1089 || scene == 1038 || scene == 1011 }}">
+			<official-account></official-account>
+		</block>
+	</view>
+
+	<!--链接区域-->
+	<view class="grace-adsense" wx:if="{{adsense.v_ad_banner != ''}}">
+		<image class="grace-adsense-img" src="{{adsense.v_ad_banner}}" data-type="{{adsense.v_ad_type}}" data-appid="{{adsense.v_ad_appid}}" data-path="{{adsense.v_ad_path}}" bindtap="openvAdsense"></image>
+	</view>
+
+	<!--流量广告-->
+	<!-- <view class="grace-adsense" wx:if="{{adsense.ad_banner && detail.isnoad == 0}}">
+		<ad unit-id="{{adsense.ad_banner}}"></ad>
+	</view> -->
+
+	<!-- 精彩推荐 -->
+	<view class="grace-title grace-bg-white">
+		<text class="grace-title-icon grace-icons icon-shoucang icon grace-red"></text>
+		<text class="grace-title-text grace-red">精彩推荐</text>
+		<view class="grace-text-small grace-gray" style="margin-right:16rpx;" bindtap="getRand">
+			<text class="grace-icons icon-refresh grace-green" style="margin-right:10rpx;"></text>换一批
+		</view>
+	</view>
+	<view class="media-list grace-news-list">
+		<block wx:for="{{recom}}" wx:key="index">
+			<view class="grace-news-item grace-border-b" data-vid="{{item.id}}" bindtap="openMedia" wx:if="{{item.type == 'video'}}">
+				<image src="{{item.thumb}}" class="grace-news-img grace-news-img-l"></image>
+				<image src="../../static/images/play.png" class="grace-news-play"></image>
+				<view class="grace-news-body">
+					<text class="grace-news-title">{{item.title}}</text>
+				</view>
+			</view>
+			<view class="grace-news-item grace-border-b" data-appid="{{item.appid}}" data-path="{{item.path}}" bindtap="openGoods" wx:if="{{item.type == 'goods'}}">
+				<image src="{{item.thumb}}" class="grace-news-img grace-news-img-l"></image>
+				<image src="../../static/images/play.png" class="grace-news-play"></image>
+				<view class="grace-news-body">
+					<text class="grace-news-title">{{item.title}}仅￥{{item.price}}元</text>
+				</view>
+				<text class="grace-media-ad grace-tags grace-gtbg-blue grace-absolute-rb">推广</text>
+			</view>
+		</block>
+	</view>
+	<!--新人提示-->
+	<graceShade zIndex="999" background="rgba(0, 0, 0, 0.8)" show="{{showGuide}}">
+		<view class="grace-guide">
+			<text class="grace-chevron"></text>
+			<text class="grace-chevron"></text>
+			<text class="grace-chevron"></text>
+			<text class="grace-alert">往下还有精彩内容</text>
+			<button type="primary" class="grace-button grace-gtbg-green" bindtap="closeGuide">知道了</button>
+		</view>
+	</graceShade>
+
+	<!-- 遮罩组件 -->
+	<graceShade zIndex="999" show="{{shareShow}}" background="rgba(0,0,0,0.8)">
+		<view class="box-stop" bindtap="shareHide">
+			<view wx:if="{{extend.fixed_text != ''}}" class="stop-tips">
+					{{extend.fixed_text}}
+			</view>
+			<view class="stop-inner">
+				<view class="stop-play" bindtap="rePlay">
+					<image class="stop-icon" src="../../static/images/icon_replay.png"></image>
+					<view class="stop-text">重播</view>
+				</view>
+				<button class="stop-share" open-type="share">
+					<image class="stop-icon stop-icon-share" src="../../static/images/icon_share.png"></image>
+					<view class="stop-text">分享</view>
+				</button>
+			</view>
+		</view>
+	</graceShade>
+
+	<!--浮动按钮-->
+	<view wx:if="{{extend.reward == 1}}">
+		<image src="../../static/images/icon_ds.png" class="grace-reward" bindtap="openReward" />
+	</view>
+
+	<!--浮动按钮-->
+	<view wx:if="{{isDanmu == 1}}" class="fixed-text">{{extend.fixed_text}}</view>
+
+</view>

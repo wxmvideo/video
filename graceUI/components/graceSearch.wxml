@@ -1,0 +1,10 @@
+<!--graceUI/components/graceSearch.wxml-->
+<view class="gui-search" style="height:{{height}}; background:{{background}};">
+  <view class="gui-search-icon grace-icons icon-search" 
+  style="color:{{iconColor}}; font-size:{{iconFontSize}}; line-height:{{height}}; width:{{iconWidth}};"></view>
+  <input type="text" class="gui-search-input" value="{{kwd}}" placeholder="{{placeholder}}" 
+  style="height:{{inputHeight}}; line-height:{{inputHeight}}; font-size:{{inputFontSize}};" 
+  bindinput="inputting" bindconfirm="confirm" confirm-type="search" />
+  <view class="gui-search-icon grace-icons icon-close" wx:if="{{kwd != ''}}" catchtap="clearKwd" 
+  style="color:{{iconColor}}; font-size:{{iconFontSize}}; line-height:{{height}}; width:{{iconWidth}};"></view>
+</view>

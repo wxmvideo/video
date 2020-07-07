@@ -1,0 +1,6 @@
+<view class="grace-check-btn-wrap" catchtap="changeStatus">
+  <view 
+		class="{{checked ? 'grace-check-checked' : 'grace-check-btn'}}" 
+		style="font-size:{{size+'rpx'}}; line-height:{{size+'rpx'}}; color:{{checked ? checkedColor : color}};"></view>
+  <view class="grace-check-lable"><slot></slot></view>
+</view>

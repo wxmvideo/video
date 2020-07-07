@@ -1,0 +1,9 @@
+<!--graceUI/components/graceFullLoading.wxml-->
+<view class="grace-full-loading" wx:if="{{graceFullLoading}}" catchtap="" catchtouchmove="">
+  <view class="content">
+    <view class="image">
+      <image src="{{logoUrl}}" mode="widthFix" style="width:{{size}}; height:{{size}};"></image>
+    </view>
+    <view class="text" style="font-size:{{fontSize}}; color:{{textColor}};">{{text}}</view>
+  </view>
+</view>

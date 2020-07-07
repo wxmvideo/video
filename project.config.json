@@ -1,0 +1,109 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.2",
+	"appid": "",
+	"projectname": "dk_video",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "商城开发",
+					"pathName": "pages/mall/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "天气",
+					"pathName": "pages/tool/weather",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "扫码进入",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "打赏",
+					"pathName": "pages/media/reward",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "推荐",
+					"pathName": "pages/media/recom",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "八字",
+					"pathName": "pages/tools/eight",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "graceDialog" : "../../graceUI/components/graceDialog"
+  },
+  "navigationBarTitleText": "超级日历"
+}

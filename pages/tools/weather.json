@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+     "graceDialog" : "../../graceUI/components/graceDialog"
+  },
+  "navigationStyle":"custom"
+}

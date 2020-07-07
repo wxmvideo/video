@@ -1,0 +1,38 @@
+<view class="grace-date" wx:if="{{show}}" style="top:{{top}}; zIndex:{{zIndex}}" catchtap="" catchtouchmove="">
+  <view class="grace-date-header">
+    <view class="grace-date-header-btn" bindtap="prevYear">
+      <text class="grace-icons icon-arrow-left"></text>
+      <text class="grace-icons icon-arrow-left"></text>
+    </view>
+    <view class="grace-date-header-btn" bindtap="prevMonth">
+      <text class=" grace-icons icon-arrow-left"></text>
+    </view>
+    <view class="grace-date-header-date">{{cYear}} 年 {{cMonth}} 月</view>
+    <view class="grace-date-header-btn" bindtap="nextMonth">
+      <text class="grace-icons icon-arrow-right"></text>
+    </view>
+    <view class="grace-date-header-btn" bindtap="nextYear">
+      <text class=" grace-icons icon-arrow-right"></text>
+      <text class=" grace-icons icon-arrow-right"></text>
+    </view>
+  </view>
+  <view class="grace-date-week">
+    <text class="grace-date-weeks" wx:for="{{weeks}}" wx:key="index">{{item}}</text>
+  </view>
+  <view class="grace-date-days">
+    <view class="grace-date-ditems {{currentDayIn == cYear+'-'+cMonthStr+'-'+ item.date ? 'grace-d-current' : ''}}" 
+    wx:for="{{days}}" xw:key="index" bindtap="chooseDate" data-cdate="{{cYear+'-'+cMonthStr+'-'+item.date}}">
+      <view class="grace-date-day {{currentDayIn == (cYear+'-'+cMonthStr+'-'+item.date) ? 'grace-d-current-txt' : ''}}">{{item.date}}</view>
+      <view class="grace-date-nl {{currentDayIn == (cYear+'-'+cMonthStr+'-'+item.date) ? 'grace-d-current-txt' : ''}}">{{item.nl}}</view>
+    </view>
+  </view>
+  <view class="grace-nowrap grace-flex-center" style="margin-top:25rpx;" wx:if="{{isTime}}">
+    <picker mode="time" bindchange="timechange" value="{{currentTimeIn}}">
+      <text class="grace-date-time">时间 : {{currentTimeIn}}</text>
+    </picker>
+  </view>
+  <view class="grace-date-btns" wx:if="{{isTime}}">
+    <text class="grace-date-btns-text" bindtap="close" style="color:#888888;">关闭</text>
+    <text class="grace-date-btns-text" bindtap="submit">确定</text>
+  </view>
+</view>

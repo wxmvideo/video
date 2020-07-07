@@ -1,0 +1,2 @@
+<!--pages/tools/view.wxml-->
+<web-view src="{{url}}" wx:if="{{url != ''}}" />

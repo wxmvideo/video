@@ -1,0 +1,5 @@
+/* graceUI/components/graceSlideToUnlock.wxss */
+@import "../graceIcons.wxss";
+.graceSlideToUnlock{}
+.graceSlideToUnlock-block{text-align:center;}
+.graceSlideToUnlock-text{text-align:center; color:#898989; font-size:24rpx; display:block;}

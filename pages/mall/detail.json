@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "gracePage": "../../graceUI/components/gracePage",
+    "graceToTop" : "../../graceUI/components/graceToTop",
+    "graceFlex" : "../../graceUI/components/graceFlex",
+    "graceCoupons" : "../../graceUI/components/graceCoupons"
+  },
+  "navigationBarTitleText": "宝贝详情"
+}

@@ -1,0 +1,3 @@
+<view class="grace-shade" style="z-index:{{zIndex}}; background:{{background}};" wx:if="{{show}}" catchtap="closeShade" catchtouchmove="">
+  <slot></slot>
+</view>

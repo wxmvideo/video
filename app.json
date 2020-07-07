@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/media/detail",
+    "pages/mall/index",
+    "pages/mall/detail",
+    "pages/tools/weather",
+    "pages/tools/calander",
+    "pages/media/reward",
+    "pages/tools/view",
+    "pages/tools/index",
+    "pages/media/recom",
+    "pages/tools/eight"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F7F8",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx32540bd863b27570",
+    "wx28856ba0d351426a",
+    "wxb8c5e261517d4e38",
+    "wx8083f7a229118788",
+    "wx4e3a8360e67adea2",
+    "wx18a3f9130c7faeec",
+    "wxd277df171337b490",
+    "wxaa75ef334df97c25"
+  ],
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.3.11",
+      "provider": "wxa75efa648b60994b"
+    },
+    "WechatSI": {
+      "version": "0.3.3",
+      "provider": "wx069ba97219f66d99"
+    }
+  },
+  "usingComponents": {
+    "txv-video": "plugin://tencentvideo/video"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "为您提供当地天气展示服务"
+    }
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "tabBar": {
+    "color": "#6B7374",
+    "selectedColor": "#FF6253",
+    "borderStyle": "white",
+    "backgroundColor": "#F6F7F8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/menu_1.png",
+        "selectedIconPath": "static/images/menu_1a.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/media/recom",
+        "iconPath": "static/images/menu_4.png",
+        "selectedIconPath": "static/images/menu_4a.png",
+        "text": "推荐"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

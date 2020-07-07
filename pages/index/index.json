@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "gracePage": "../../graceUI/components/gracePage",
+    "graceHeader" : "../../graceUI/components/graceHeader",
+    "graceNavBar": "../../graceUI/components/graceNavBar",
+    "graceLoading": "../../graceUI/components/graceLoading",
+    "graceEmpty": "../../graceUI/components/graceEmptyNew",
+    "graceReload": "../../graceUI/components/graceReload"
+  },
+  "navigationStyle":"custom",
+  "navigationBarTextStyle": "white"
+}
